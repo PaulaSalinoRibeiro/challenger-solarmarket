@@ -1,6 +1,6 @@
 import { IProduct } from '../../interfaces/IProducts';
 import { IProductService } from '../../interfaces/IProductService';
-import { products } from '../../databases/products';
+import { products } from '../../databases/productsDb';
 
 export class ProductService implements IProductService {
 
