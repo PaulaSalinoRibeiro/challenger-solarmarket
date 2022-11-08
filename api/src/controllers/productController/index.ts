@@ -18,7 +18,7 @@ export class ProductController {
 
   getProductByCode(req: Request, res: Response, next: NextFunction) {
     try {
-      const product = this.service.getProductByCode(req.params.product);
+      const product = this.service.getProductByCode(req.params.code);
       return res.status(200).json(product)
     } catch (error) {
       next(error);
