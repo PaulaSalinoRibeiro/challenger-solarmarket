@@ -136,3 +136,5 @@ const products = [
     image: 'https://belenergy.com.br/wp-content/uploads/2021/02/Conecde-ecac-01-300x300.jpg.webp',
   }
 ]
+
+export { products }
