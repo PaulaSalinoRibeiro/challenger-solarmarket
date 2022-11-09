@@ -27,4 +27,12 @@ describe('Product Controller', () => {
     expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
     expect((res.json as sinon.SinonStub).calledWith(productsMock)).to.be.true;
   });
+
+  it('Should have return status 200 with one product', () => {
+    req.params = { code: 'MFVJI-MO-120-460W' }
+    productController.getProductByCode(req, res, next);
+
+    expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+    expect((res.json as sinon.SinonStub).calledWith(productsMock[0])).to.be.true;
+  });
 })
