@@ -3,7 +3,7 @@ import { IShopCartSlice, IProduct } from './types';
 
 const initialState: IShopCartSlice = {
   productsList: []
-}
+};
 
 export const shopCartSlice = createSlice({
   name: 'shop-cart',

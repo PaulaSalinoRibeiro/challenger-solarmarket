@@ -1,11 +1,11 @@
 export interface IProduct {
-  name: String,
-  category: String,
-  code: String,
-  description: String,
-  price: String,
-  image: String,
-  qty?: Number,
+  name: string,
+  category: string,
+  code: string,
+  description: string,
+  price: string,
+  image: string,
+  qty?: number,
 }
 
 export interface IShopCartSlice {
