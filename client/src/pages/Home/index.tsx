@@ -27,7 +27,9 @@ export function Home() {
         {
           productsFilter && productsFilter.map(product => (
             <ProductCard 
-              name={product.name} 
+              name={product.name}
+              description={product.description}
+              category={product.category}
               image={product.image} 
               price={product.price}
               code={product.code}
