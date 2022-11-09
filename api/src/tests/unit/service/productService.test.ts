@@ -15,7 +15,8 @@ describe('Product Service', () => {
   })
 
   it('Should have return a product if code exist', () => {
-    //
+    const productByCode = product.getProductByCode(productsMock[0].code)
+    expect(productByCode).to.be.deep.equal(productsMock[0])
   })
 
   it('Should throw a error if code is not found', () => {
