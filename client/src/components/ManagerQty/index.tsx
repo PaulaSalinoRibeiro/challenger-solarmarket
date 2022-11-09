@@ -17,6 +17,7 @@ export function ManagerQty({ name, image, price, category, code, description }: 
 
   const handleIncrease = () => {
     setQty(qty + 1);
+
     dispatch(addProduct({
       name,
       image,
@@ -24,8 +25,7 @@ export function ManagerQty({ name, image, price, category, code, description }: 
       category,
       code,
       description,
-      qty: qty + 1,
-    }))
+    }));
   };
 
   const handleDecrease = () => {
@@ -34,6 +34,7 @@ export function ManagerQty({ name, image, price, category, code, description }: 
     };
 
     setQty(qty -1);
+
     dispatch(removeProduct({
       name,
       image,
@@ -41,8 +42,7 @@ export function ManagerQty({ name, image, price, category, code, description }: 
       category,
       code,
       description,
-      qty: qty - 1,
-    }))
+    }));
   };
   return (
     <div>

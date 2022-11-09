@@ -3,7 +3,7 @@ import { searchByCategory, removeFilter } from '../../app/filterProductSlice';
 import { RootState } from '../../app/store';
 
 export function SearchByCategory() {
-  const { allCategories } = useSelector((state: RootState) => state.filters)
+  const { allCategories } = useSelector((state: RootState) => state.filters);
   const dispatch = useDispatch();
 
   return (
