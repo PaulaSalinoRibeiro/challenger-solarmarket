@@ -24,10 +24,32 @@ export const shopCartSlice = createSlice({
           return product 
         })
       }
+    },
+    removeProduct: (state, action: PayloadAction<IProduct>) => {
+      const existOne = state.productsList.some(product => product.code === action.payload.code && product.qty === 1)
+
+      if(existOne) {
+        state.productsList = state.productsList.filter(product => product.code !== action.payload.code)
+      }
+
+      if (!existOne) {
+        state.productsList = state.productsList.map(product => {
+          if( product.code === action.payload.code) {
+            product.qty = Number(product.qty) - 1
+          }
+          return product 
+        })
+      }
+    },
+    deleteProduct: (state, action: PayloadAction<IProduct>) => {
+      state.productsList = state.productsList.filter(product => product.code !== action.payload.code)
+    },
+    deleteShopCart: (state ) => {
+      state.productsList = []
     }
   }
 });
 
-export const { addProduct } = shopCartSlice.actions;
+export const { addProduct, removeProduct, deleteProduct, deleteShopCart } = shopCartSlice.actions;
 
 export default shopCartSlice.reducer;
