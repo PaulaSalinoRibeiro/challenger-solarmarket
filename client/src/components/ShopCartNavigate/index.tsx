@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-export function ShopCardNavigate() {
+export function ShopCartNavigate() {
   const navigate = useNavigate();
 
   return (

@@ -1,6 +1,7 @@
 import { fetchApi } from '../../api';
 import { useEffect, useState } from 'react';
 import { ProductCard } from '../../components/ProductCard';
+import { Header } from '../../components/Header';
 
 interface IProduct {
   name: string,
@@ -23,6 +24,7 @@ export function Home() {
   return (
     <>
       <h1>Home Page</h1>
+      <Header />
       <div>
         {
           products && products.map(product => (
@@ -31,8 +33,6 @@ export function Home() {
               image={product.image} 
               price={product.price}
               code={product.code}
-              description={product.description}
-              category={product.category}
               key={product.code}
             />))
         }
