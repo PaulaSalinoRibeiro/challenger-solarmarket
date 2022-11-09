@@ -1,13 +1,9 @@
-import { fetchApi } from './api';
-
+import { Routers } from './routers';
 
 function App() {
-
-  fetchApi('products').then(response => console.log(response))
-
   return (
     <div>
-      <h1>'Hello word!'</h1>
+      <Routers />
     </div>
   );
 }
