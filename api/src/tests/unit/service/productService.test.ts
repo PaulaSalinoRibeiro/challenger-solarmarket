@@ -1,6 +1,7 @@
 import * as sinon from 'sinon';
 import chai from 'chai';
 import { ProductService } from '../../../services/productService';
+import { productsMock } from '../../mock/products';
 
 const { expect } = chai;
 
@@ -8,24 +9,16 @@ describe('Product Service', () => {
 
   const product = new ProductService()
 
-  before(() => {
-    // 
-  })
-
-  after(() => {
-    sinon.restore()
-  }) 
-
-
   it('Should have return a list of products', () => {
-    expect(1 + 1).to.be.equal(2)
+    const productList = product.getAllProducts()
+    expect(productList).to.be.deep.equal(productsMock)
   })
 
   it('Should have return a product if code exist', () => {
-
+    //
   })
 
   it('Should throw a error if code is not found', () => {
-
+    //
   })
 })

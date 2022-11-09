@@ -1,4 +1,4 @@
-const products = [
+const productsMock = [
   {
     name: 'Monocristalino Half Cell 120 Células 460W Jinko',
     category: 'Módulo Fotovoltaico ',
@@ -137,4 +137,4 @@ const products = [
   }
 ]
 
-export { products }
+export { productsMock }
