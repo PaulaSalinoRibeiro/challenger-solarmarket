@@ -17,7 +17,7 @@ export function DetailProductCard({ name, image, price, category, code, descript
         <h2>{name}</h2>
         <p>{description}</p>
         <p>{category}</p>
-        <p>R$ {price}</p>
+        <p>R$ {price.replace(".", ",")}</p>
         <ManagerQty 
           name={name}
           image={image}

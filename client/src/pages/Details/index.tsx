@@ -4,6 +4,7 @@ import { fetchApi } from '../../api';
 import { IProduct } from '../../app/types';
 import { Header } from '../../components/Header';
 import { DetailProductCard } from '../../components/DetailProductCard';
+import { HomeNagivate } from '../../components/HomeNavigate';
 
 export function Details() {
   const { code } = useParams();
@@ -20,7 +21,7 @@ export function Details() {
     <>
       <Header />
       <h1>Details Page</h1>
-
+      <HomeNagivate />
       {
         detailsProduct && (
           <DetailProductCard 

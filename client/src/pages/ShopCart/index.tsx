@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
+import { HomeNagivate } from '../../components/HomeNavigate';
 
 export function ShopCart() {
   const { productsList } = useSelector((state: RootState ) => state.shopCart );
@@ -7,6 +8,7 @@ export function ShopCart() {
   return (
     <>
       <h1>ShopCart Page</h1>
+      <HomeNagivate />
       {
         productsList.length === 0 && <h1>Seu carrinho está vazio</h1>
       }
