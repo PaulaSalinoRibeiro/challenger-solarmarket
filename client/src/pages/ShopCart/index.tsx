@@ -7,6 +7,9 @@ export function ShopCart() {
   return (
     <>
       <h1>ShopCart Page</h1>
+      {
+        productsList.length === 0 && <h1>Seu carrinho está vazio</h1>
+      }
       <div>
         {
           productsList && productsList.map(product => (
