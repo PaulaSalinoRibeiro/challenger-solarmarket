@@ -11,3 +11,9 @@ export interface IProduct {
 export interface IShopCartSlice {
   productsList: IProduct[]
 }
+
+export interface IFilterProductSlice {
+  productsList: IProduct[],
+  productsFilter: IProduct[],
+  allCategories: string[],
+}
