@@ -4,13 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd --respawn src/index.ts"
+    "dev": "tsnd --respawn src/index.ts",
+    "test:dev": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 60000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/chai-http": "^4.2.0",
     "@types/express": "^4.17.14",
+    "@types/mocha": "^10.0.0",
+    "@types/sinon": "^10.0.13",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.1.0",
+    "sinon": "^14.0.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.8.4"
   },
