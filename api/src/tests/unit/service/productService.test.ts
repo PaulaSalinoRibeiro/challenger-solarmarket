@@ -1,4 +1,3 @@
-import * as sinon from 'sinon';
 import chai from 'chai';
 import { ProductService } from '../../../services/productService';
 import { productsMock } from '../../mock/products';

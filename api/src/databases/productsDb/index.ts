@@ -76,7 +76,7 @@ const products = [
     category: 'Bateria',
     code: 'BATDY-48V-7.2KWH',
     description: 'A bateria armazenará o excesso de energia produzida a partir da energia solar durante o dia, podendo ser usado à noite para aumentar a autossuficiência e segurança energética ou usado no horário de pico para reduzir o consumo doméstico. A missão da Dyness é facilitar uma cadeia de energia mais saudável a um bom custo-benefício, onde consumidores e empresas de serviços públicos podem sair dos combustíveis convencionais que prejudicam nosso planeta para utilizar a energia limpa.',
-    price: '23.067.00',
+    price: '23067.00',
     image: 'https://belenergy.com.br/wp-content/uploads/2022/03/Dyness-Powerbox-7-243x300.png',
   },
   {
