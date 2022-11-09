@@ -20,6 +20,10 @@ describe('Product Service', () => {
   })
 
   it('Should throw a error if code is not found', () => {
-    //
+    try {
+      product.getProductByCode('TESTE')
+    } catch (error: any) {
+      expect(error.message).to.be.equal('Not Found!')
+    }
   })
 })
