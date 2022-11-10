@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProduct, removeProduct } from '../../app/shopCartSlice';
 
-type Props = {
+import * as S from './styled';
+
+interface Props {
   name: string,
   category: string,
   code: string,
@@ -45,20 +47,20 @@ export function ManagerQty({ name, image, price, category, code, description }: 
     }));
   };
   return (
-    <div>
-        <button
-          type="button"
-          onClick={() => handleIncrease()}
-        >
-          +
-        </button>
-        <div>{qty}</div>
-        <button
-          type="button"
-          onClick={() => handleDecrease()}
-        >
-          -
-        </button>
-      </div>
+    <S.Container>
+      <S.Btn
+        type="button"
+        onClick={() => handleIncrease()}
+      >
+        +
+      </S.Btn>
+      <S.Qty>{qty}</S.Qty>
+      <S.Btn
+        type="button"
+        onClick={() => handleDecrease()}
+      >
+        -
+      </S.Btn>
+    </S.Container>
   )
 }
