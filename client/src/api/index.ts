@@ -9,3 +9,13 @@ export const fetchApi = async (endpoint: string) => {
     return null
   }
 }
+
+export const fetchCep = async (cep: string) => {
+  try {
+    const URL_BASE = `https://viacep.com.br/ws/${cep}/json/`
+    const { data } = await axios.get(URL_BASE)
+    return data;
+  } catch (error) {
+    return null
+  }
+}

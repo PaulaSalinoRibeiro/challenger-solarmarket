@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { addProduct, removeProduct, deleteProduct } from '../../app/shopCartSlice';
+import { TotalPrice } from '../TotalPrice';
 
 type Props = {
   name: string,
@@ -31,7 +32,7 @@ export function ProductShopCart({ name, image, price, category, code, descriptio
           +
         </button>
         <p>{qty}</p>
-        <p>R$ {price.replace(".", ".")}</p>
+        <p>R$ {price.replace(".", ",")}</p>
         <button
           type="button"
           disabled={qty === 0}
@@ -50,6 +51,7 @@ export function ProductShopCart({ name, image, price, category, code, descriptio
           🗑
         </button>
       </div>
+      <TotalPrice />
     </div>
   )
 }

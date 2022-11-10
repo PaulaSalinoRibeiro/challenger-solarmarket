@@ -4,6 +4,7 @@ import { useSelector , useDispatch} from 'react-redux';
 import { RootState } from '../../app/store';
 import { addSavedItens } from '../../app/shopCartSlice';
 import { useEffect } from 'react';
+import { AddressForm } from '../../components/AddressForm';
 
 interface Product {
   name: string,
@@ -24,7 +25,7 @@ export function ShopCart() {
     if(productsList.length === 0) {
       dispatch(addSavedItens(productsSaved))
     }
-  }, [])
+  }, [dispatch])
 
   return (
     <>
@@ -49,6 +50,11 @@ export function ShopCart() {
               qty={product.qty || 0}
             />
           ))
+        }
+      </div>
+      <div>
+        {
+          productsList.length !== 0 && <AddressForm />
         }
       </div>
     </>
