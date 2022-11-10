@@ -6,6 +6,9 @@ import { addSavedItens } from '../../app/shopCartSlice';
 import { useEffect } from 'react';
 import { AddressForm } from '../../components/AddressForm';
 
+import * as S from './styled';
+import { TotalPrice } from '../../components/TotalPrice';
+
 interface Product {
   name: string,
   category: string,
@@ -29,14 +32,13 @@ export function ShopCart() {
 
   return (
     <>
-      <h1>ShopCart Page</h1>
       <HomeNagivate />
       {
         productsList.length === 0 
         && productsSaved.length === 0 
-        && <h1>Seu carrinho está vazio</h1>
+        && <S.Alert>Seu carrinho está vazio</S.Alert>
       }
-      <div>
+      <S.Container>
         {
           productsList && productsList.map(product => (
             <ProductShopCart
@@ -51,7 +53,8 @@ export function ShopCart() {
             />
           ))
         }
-      </div>
+      </S.Container>
+      <TotalPrice/>
       <div>
         {
           productsList.length !== 0 && <AddressForm />

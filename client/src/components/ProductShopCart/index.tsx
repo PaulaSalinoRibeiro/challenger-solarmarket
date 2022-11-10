@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { addProduct, removeProduct, deleteProduct } from '../../app/shopCartSlice';
-import { TotalPrice } from '../TotalPrice';
+
+import * as S from './styled';
 
 type Props = {
   name: string,
@@ -16,24 +17,25 @@ export function ProductShopCart({ name, image, price, category, code, descriptio
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <img
+    <S.Container>
+      <S.Image
         src={image}
         alt={name}
       />
-      <p>{name}</p>
-      <div>
-        <button
+      <S.Text>{name}</S.Text>
+      <S.Text>R$ {price.replace(".", ",")}</S.Text>
+      <S.ManagerContainer>
+        <S.Btn
           type="button"
           onClick={() => dispatch(addProduct(
             {name, image, price, category, code, description}
             ))}
         >
           +
-        </button>
-        <p>{qty}</p>
-        <p>R$ {price.replace(".", ",")}</p>
-        <button
+        </S.Btn>
+        <S.Text>{qty}</S.Text>
+        
+        <S.Btn
           type="button"
           disabled={qty === 0}
           onClick={() => dispatch(removeProduct(
@@ -41,17 +43,16 @@ export function ProductShopCart({ name, image, price, category, code, descriptio
             ))}
         >
           -
-        </button>
-        <button
+        </S.Btn>
+        <S.DeleteBtn
           type="button"
           onClick={() => dispatch(deleteProduct(
             {name, image, price, category, code, description}
           ))}
         >
-          🗑
-        </button>
-      </div>
-      <TotalPrice />
-    </div>
+          Remover
+        </S.DeleteBtn>
+      </S.ManagerContainer>
+    </S.Container>
   )
 }
