@@ -7,6 +7,8 @@ import { Header } from '../../components/Header';
 import { RootState } from '../../app/store';
 import { SearchByCategory } from '../../components/SearchByCategory';
 
+import * as S from './styled';
+
 export function Home() {
   const dispatch = useDispatch();
   const { productsFilter } = useSelector((state: RootState) => state.filters)
@@ -19,8 +21,7 @@ export function Home() {
   }, [dispatch])
 
   return (
-    <>
-      <h1>Home Page</h1>
+    <S.Container>
       <Header />
       <SearchByCategory />
       <div>
@@ -42,6 +43,6 @@ export function Home() {
           alert && <h1>Desculpe, não é possivel exibir os produtos!</h1>
         }
       </div>
-    </>
+    </S.Container>
   )
 }

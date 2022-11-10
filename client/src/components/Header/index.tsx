@@ -1,9 +1,11 @@
 import { ShopCartNavigate } from '../ShopCartNavigate';
 
+import * as S from './styled';
+
 export function Header() {
   return (
-    <header>
+    <S.Container>
       <ShopCartNavigate />
-    </header>
+    </S.Container>
   )
 }

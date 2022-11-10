@@ -1,10 +1,12 @@
 import { Routers } from './routers';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './global/theme';
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Routers />
-    </div>
+    </ThemeProvider>
   );
 }
 
