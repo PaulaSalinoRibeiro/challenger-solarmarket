@@ -6,6 +6,8 @@ import { Header } from '../../components/Header';
 import { DetailProductCard } from '../../components/DetailProductCard';
 import { HomeNagivate } from '../../components/HomeNavigate';
 
+import * as S from './styled';
+
 export function Details() {
   const { code } = useParams();
   const [detailsProduct, setDetaislProduct] = useState<IProduct>();
@@ -20,7 +22,6 @@ export function Details() {
   return (
     <>
       <Header />
-      <h1>Details Page</h1>
       <HomeNagivate />
       {
         detailsProduct && (
@@ -34,12 +35,11 @@ export function Details() {
           />
         )
       }
-
-      <div>
+      <S.Container>
         {
-          alert && <h1>Desculpe, não é possivel exibir o produto!</h1>
+          alert && <S.Alert>Desculpe, não é possivel exibir o produto!</S.Alert>
         }
-      </div>
+      </S.Container>
     </>
   )
 }
