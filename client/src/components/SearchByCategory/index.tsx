@@ -2,15 +2,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { searchByCategory, removeFilter } from '../../app/filterProductSlice';
 import { RootState } from '../../app/store';
 
+import * as S from './styled';
+
 export function SearchByCategory() {
   const { allCategories } = useSelector((state: RootState) => state.filters);
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <S.Container>
       Pesquisar por categoria:
-      {" "}
-      <select
+      <S.Select
         onChange={({target}) => dispatch(searchByCategory(target.value))}
       >
         {
@@ -22,13 +23,13 @@ export function SearchByCategory() {
             </option>
           ))
         }
-      </select>
-      <button
+      </S.Select>
+      <S.Button
         type="button"
         onClick={() => dispatch(removeFilter())}
       >
         Remover Filtro
-      </button>
-    </div>
+      </S.Button>
+    </S.Container>
   )
 }
