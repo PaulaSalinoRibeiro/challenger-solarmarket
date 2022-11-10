@@ -5,3 +5,16 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
 `;
+
+export const Products = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 4rem;
+`;
+
+export const Alert = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+`; 

@@ -24,7 +24,7 @@ export function Home() {
     <S.Container>
       <Header />
       <SearchByCategory />
-      <div>
+      <S.Products>
         {
           productsFilter && productsFilter.map(product => (
             <ProductCard 
@@ -37,12 +37,12 @@ export function Home() {
               key={product.code}
             />))
         }
-      </div>
-      <div>
+      </S.Products>
+      <S.Alert>
         {
           alert && <h1>Desculpe, não é possivel exibir os produtos!</h1>
         }
-      </div>
+      </S.Alert>
     </S.Container>
   )
 }
