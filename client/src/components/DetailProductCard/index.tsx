@@ -1,6 +1,8 @@
-import { ManagerQty } from "../ManagerQty"
+import { ManagerQty } from '../ManagerQty';
 
-type Props = {
+import * as S from './styled';
+
+interface Props {
   name: string,
   category: string,
   code: string,
@@ -11,13 +13,16 @@ type Props = {
 
 export function DetailProductCard({ name, image, price, category, code, description }: Props) {
   return (
-    <div>
-      <img src={image} alt={name} />
-      <div>
-        <h2>{name}</h2>
-        <p>{description}</p>
-        <p>{category}</p>
-        <p>R$ {price.replace(".", ",")}</p>
+    <S.Container>
+      <S.Image
+        src={image}
+        alt={name}
+      />
+      <S.Infos>
+        <S.Title>{name}</S.Title>
+        <S.Description>{description}</S.Description>
+        <S.Category>{category}</S.Category>
+        <S.Price>R$ {price.replace(".", ",")}</S.Price>
         <ManagerQty 
           name={name}
           image={image}
@@ -26,7 +31,7 @@ export function DetailProductCard({ name, image, price, category, code, descript
           code={code}
           description={description}
         />
-      </div>
-    </div>
+      </S.Infos>
+    </S.Container>
   )
 }
