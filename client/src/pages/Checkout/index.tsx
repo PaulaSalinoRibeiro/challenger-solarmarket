@@ -3,6 +3,8 @@ import { IProduct } from '../../app/types';
 import { CheckoutAddress } from '../../components/CheckoutAddress';
 import { CheckoutCard } from '../../components/CheckoutCard';
 
+import * as S from './styled';
+
 interface Address {
   neighborhood: string,
   local: string,
@@ -24,9 +26,9 @@ export function Checkout() {
   }, []);
 
   return (
-    <>
+    <S.Container>
       {
-        products && address && <h1>Compra finalizada com sucesso!</h1>
+        products && address && <S.Title>Sua compra foi finalizada com sucesso!</S.Title>
       }
       {
         products && address && (products.map((product) => (
@@ -49,6 +51,6 @@ export function Checkout() {
           local={address.local}
         />)
       }
-    </>
+    </S.Container>
   )
 }
