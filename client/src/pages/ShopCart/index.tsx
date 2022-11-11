@@ -55,11 +55,11 @@ export function ShopCart() {
         }
       </S.Container>
       <TotalPrice/>
-      <div>
+      <S.AddressContainer>
         {
           productsList.length !== 0 && <AddressForm />
         }
-      </div>
+      </S.AddressContainer>
     </>
   )
 }
