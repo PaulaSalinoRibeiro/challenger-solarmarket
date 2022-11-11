@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { fetchCep } from '../../api';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteShopCart } from '../../app/shopCartSlice';
 import { RootState } from '../../app/store';
+import { sendApi } from '../../api';
 
 import * as S from './styled';
 
@@ -15,6 +17,7 @@ interface Address {
 
 export function AddressForm() {
   const isCepLengthValied = 8;
+  const dispatch = useDispatch();
   const [cep, setCep] = useState('');
   const [alert, setAlert] = useState(false);
   const [address, setAddress] = useState<Address>(
@@ -32,10 +35,13 @@ export function AddressForm() {
     setAlert(false);
   };
 
-  const handleBought = () => {
-    const productsCode = productsList.map(item => item.code);
- 
-    localStorage.setItem('@shopHistory', JSON.stringify([...productsCode, address]));
+  const handleBought = async () => {   
+    await Promise.all(productsList
+      .map(item => sendApi(`salles/${item.code}`, { code: item.code, qty: item.qty || 0, address})));
+
+    localStorage.setItem('@shopHistory', JSON.stringify({productsList, address}));
+
+    dispatch(deleteShopCart());
   };
 
   return (

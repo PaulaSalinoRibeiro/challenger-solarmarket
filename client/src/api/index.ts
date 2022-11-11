@@ -1,5 +1,17 @@
 import axios from 'axios';
 
+interface Data {
+  code: string,
+  qty: number,
+  address: {
+    bairro: string,
+    localidade: string,
+    logradouro: string,
+    uf: string,
+    cep: string,
+  },
+}
+
 export const fetchApi = async (endpoint: string) => {
   try {
     const URL_BASE = 'http://localhost:8000/'
@@ -8,7 +20,7 @@ export const fetchApi = async (endpoint: string) => {
   } catch (error) {
     return null
   }
-}
+};
 
 export const fetchCep = async (cep: string) => {
   try {
@@ -17,5 +29,15 @@ export const fetchCep = async (cep: string) => {
     return data;
   } catch (error) {
     return { error: 'error'}
+  }
+};
+
+export const sendApi = async (endpoint: string, data: Data) => {
+  try {
+    const URL_BASE = 'http://localhost:8000/'
+    const { data } = await axios.get(`${URL_BASE}${endpoint}`);
+    return data;
+  } catch (error) {
+    return null;
   }
 }
