@@ -12,6 +12,7 @@ export class SalleService implements ISalleService {
   getAllSalles(): ISalles[] {
     return this.database
   }
+  
   createSalle(data: ISalles): void {
     this.database.push(data)
   }
