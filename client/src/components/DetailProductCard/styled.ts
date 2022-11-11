@@ -31,6 +31,12 @@ export const Category = styled.p`
   font-size: large;
 `;
 
+export const Code = styled.p`
+  font-weight: bold;
+  font-size: large;
+  color: ${({theme}) => theme.colors.textLight};
+`;
+
 export const Price = styled.p`
   text-align: center;
   font-size: 1.5rem;

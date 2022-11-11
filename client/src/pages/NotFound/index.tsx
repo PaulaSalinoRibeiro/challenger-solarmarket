@@ -1,7 +1,9 @@
+import * as S from './styled';
+
 export function NotFound() {
   return (
-    <>
-      <h1>NotFound Page</h1>
-    </>
+    <S.Container>
+      <S.Title>NotFound Page</S.Title>
+    </S.Container>
   )
 }

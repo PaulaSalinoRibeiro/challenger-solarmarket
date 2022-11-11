@@ -21,7 +21,8 @@ export function DetailProductCard({ name, image, price, category, code, descript
       <S.Infos>
         <S.Title>{name}</S.Title>
         <S.Description>{description}</S.Description>
-        <S.Category>{category}</S.Category>
+        <S.Category>{category} </S.Category>
+        <S.Code>{code}</S.Code>
         <S.Price>R$ {price.replace(".", ",")}</S.Price>
         <ManagerQty 
           name={name}

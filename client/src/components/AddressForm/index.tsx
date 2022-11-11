@@ -94,6 +94,16 @@ export function AddressForm() {
           </S.FormAddress>
         )
       }
+      {
+        address.cep && (
+          <S.BtnFinneshShop
+            type="button"
+            onClick={() => console.log('clicou!')}
+          >
+            Finalizar Compra
+          </S.BtnFinneshShop>
+        )
+      }
     </S.Container>
   ) 
 }

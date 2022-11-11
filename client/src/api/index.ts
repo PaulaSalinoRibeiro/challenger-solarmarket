@@ -16,6 +16,6 @@ export const fetchCep = async (cep: string) => {
     const { data } = await axios.get(URL_BASE)
     return data;
   } catch (error) {
-    return null
+    return { error: 'error'}
   }
 }

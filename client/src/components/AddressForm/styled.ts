@@ -61,4 +61,18 @@ export const FormAddress = styled.form`
     margin-left: 1rem;
     font-size: large;
   }
-`
+`;
+
+export const BtnFinneshShop = styled.button`
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 4rem;
+  background: ${({theme}) => theme.colors.terciary};
+  border: none;
+  border-radius: .4rem;
+  padding: .5rem 2rem;
+  color: ${({theme}) => theme.colors.secondary};
+  font-weight: bold;
+  font-size: large;
+`;
