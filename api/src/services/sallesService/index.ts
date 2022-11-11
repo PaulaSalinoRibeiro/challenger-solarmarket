@@ -22,6 +22,5 @@ export class SalleService implements ISalleService {
     if(!salles) throw new CustomerError(404, 'Not Found!')
 
     return salles
-
   } 
 }
