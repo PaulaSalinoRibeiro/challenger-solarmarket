@@ -1,6 +1,7 @@
 import { ISalles } from './ISalles';
 
 export interface ISalleService {
-  getAllSalles(): ISalleService[],
-  createSalle(data: ISalles): void;
+  getAllSalles(): ISalles[],
+  createSalle(data: ISalles): void,
+  findByCep(cep: string): ISalles[] | void
 };
