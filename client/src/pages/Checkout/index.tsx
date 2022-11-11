@@ -41,6 +41,9 @@ export function Checkout() {
           />
         )))
       }
+      {
+        
+      }
     </>
   )
 }

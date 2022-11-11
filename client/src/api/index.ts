@@ -4,9 +4,9 @@ interface Data {
   code: string,
   qty: number,
   address: {
-    bairro: string,
-    localidade: string,
-    logradouro: string,
+    neighborhood: string,
+    local: string,
+    street: string,
     uf: string,
     cep: string,
   },

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { fetchCep } from '../../api';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteShopCart } from '../../app/shopCartSlice';
@@ -7,31 +8,40 @@ import { sendApi } from '../../api';
 
 import * as S from './styled';
 
+
 interface Address {
-  bairro: string,
-  localidade: string,
-  logradouro: string,
+  neighborhood: string,
+  local: string,
+  street: string,
   uf: string,
   cep: string,
 };
 
 export function AddressForm() {
   const isCepLengthValied = 8;
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [cep, setCep] = useState('');
   const [alert, setAlert] = useState(false);
   const [address, setAddress] = useState<Address>(
-    {bairro:'', localidade:'', logradouro:'', uf:'', cep:''});
+    {neighborhood:'', local:'', street:'', uf:'', cep:''});
 
   const { productsList } = useSelector((state: RootState) => state.shopCart);
 
   const handleClick = async () => {
     const result = await fetchCep(cep);
+   
     setCep('');
 
     if (result.erro) return setAlert(true);
     
-    setAddress(result);
+    setAddress({
+      neighborhood: result.bairro, 
+      local: result.localidade,
+      street: result.logradouro, 
+      uf: result.uf, 
+      cep: result.cep
+    });
     setAlert(false);
   };
 
@@ -42,6 +52,8 @@ export function AddressForm() {
     localStorage.setItem('@shopHistory', JSON.stringify({productsList, address}));
 
     dispatch(deleteShopCart());
+
+    navigate('/checkout');
   };
 
   return (
@@ -76,21 +88,21 @@ export function AddressForm() {
               Rua: 
               <input 
                 type="text" 
-                defaultValue={address.logradouro}
+                defaultValue={address.street}
               />
             </label>
             <label>
               Localidade: 
               <input 
                 type="text" 
-                defaultValue={address.localidade}
+                defaultValue={address.local}
               />
             </label>
             <label>
               Bairro: 
               <input 
                 type="text" 
-                defaultValue={address.bairro}
+                defaultValue={address.neighborhood}
               />
             </label>
             <label>
