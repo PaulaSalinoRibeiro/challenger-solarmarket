@@ -67,6 +67,11 @@ export const shopCartSlice = createSlice({
   }
 });
 
-export const { addProduct, removeProduct, deleteProduct, deleteShopCart, addSavedItens } = shopCartSlice.actions;
+export const { 
+  addProduct, 
+  removeProduct, 
+  deleteProduct, 
+  deleteShopCart, 
+  addSavedItens } = shopCartSlice.actions;
 
 export default shopCartSlice.reducer;

@@ -1,22 +1,26 @@
 import { useState } from 'react';
 import { fetchCep } from '../../api';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../app/store';
 
 import * as S from './styled';
 
-interface Adddress {
+interface Address {
   bairro: string,
   localidade: string,
   logradouro: string,
   uf: string,
   cep: string,
-}
+};
 
 export function AddressForm() {
   const isCepLengthValied = 8;
   const [cep, setCep] = useState('');
   const [alert, setAlert] = useState(false);
-  const [address, setAddress] = useState<Adddress>(
+  const [address, setAddress] = useState<Address>(
     {bairro:'', localidade:'', logradouro:'', uf:'', cep:''});
+
+  const { productsList } = useSelector((state: RootState) => state.shopCart);
 
   const handleClick = async () => {
     const result = await fetchCep(cep);
@@ -25,7 +29,13 @@ export function AddressForm() {
     if (result.erro) return setAlert(true);
     
     setAddress(result);
-    setAlert(false)
+    setAlert(false);
+  };
+
+  const handleBought = () => {
+    const productsCode = productsList.map(item => item.code);
+ 
+    localStorage.setItem('@shopHistory', JSON.stringify([...productsCode, address]));
   };
 
   return (
@@ -98,7 +108,7 @@ export function AddressForm() {
         address.cep && (
           <S.BtnFinneshShop
             type="button"
-            onClick={() => console.log('clicou!')}
+            onClick={() => handleBought()}
           >
             Finalizar Compra
           </S.BtnFinneshShop>

@@ -9,7 +9,7 @@ export interface IProduct {
 }
 
 export interface IShopCartSlice {
-  productsList: IProduct[]
+  productsList: IProduct[],
 }
 
 export interface IFilterProductSlice {
