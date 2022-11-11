@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { fetchCep } from '../../api';
 
+import * as S from './styled';
+
 interface Adddress {
   bairro: string,
   localidade: string,
@@ -23,34 +25,37 @@ export function AddressForm() {
     if (result.erro) return setAlert(true);
     
     setAddress(result);
+    setAlert(false)
   };
 
   return (
-    <>
-      <form>
+    <S.Container>
+      <S.CepContainer>
+        <S.CepForm>
+          <label>
+            CEP: 
+            <input 
+              type="text"
+              value={cep}
+              name="cep"
+              onChange={({target}) => setCep(target.value)}
+              placeholder="00000000"
+              />
+          </label>
+        </S.CepForm>
+        <S.Btn
+          onClick={() => handleClick()}
+          disabled={cep.length !== isCepLengthValied}
+          >
+          Consultar CEP
+        </S.Btn>
         {
-          alert && <p>Não foi possivel encontrar o CEP informado</p>
+          alert && <S.Alert>Não foi possivel encontrar o CEP informado</S.Alert>
         }
-        <label>
-          CEP: 
-          <input 
-            type="text"
-            value={cep}
-            name="cep"
-            onChange={({target}) => setCep(target.value)}
-            placeholder="00000000"
-          />
-        </label>
-      </form>
-      <button
-        onClick={() => handleClick()}
-        disabled={cep.length !== isCepLengthValied}
-      >
-        Consultar CEP
-      </button>
+      </S.CepContainer>
       {
         address.cep && (
-          <form>
+          <S.FormAddress>
             <label>
               Rua: 
               <input 
@@ -86,9 +91,9 @@ export function AddressForm() {
                 defaultValue={address.cep}
               />
             </label>
-          </form>
+          </S.FormAddress>
         )
       }
-    </>
+    </S.Container>
   ) 
 }

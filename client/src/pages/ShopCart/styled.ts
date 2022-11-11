@@ -12,5 +12,8 @@ export const Container = styled.div`
 `;
 
 export const AddressContainer = styled.div`
-  border: 1px solid red;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 2rem 8rem;
+  width: 80%;
 `;

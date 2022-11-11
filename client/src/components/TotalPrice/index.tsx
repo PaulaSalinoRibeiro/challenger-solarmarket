@@ -10,8 +10,14 @@ export function TotalPrice() {
   .reduce((acc: number, item: any) => acc += Number(item.price) * item.qty, 0);
 
   return (
-    <S.Container>
-      Total R$ {totalPrice.toString().replace(".", ",")}
-    </S.Container>
+    <>
+      {
+      productsList.length !== 0 && (
+        <S.Container>
+          Total R$ {totalPrice.toString().replace(".", ",")}
+        </S.Container>
+      )
+    }
+    </>
   )
 }
