@@ -1,3 +1,5 @@
+import * as S from './styled';
+
 interface Product {
   name: string,
   price: string,
@@ -7,17 +9,18 @@ interface Product {
 
 export function CheckoutCard({name, price, image, qty}:Product) {
   return (
-    <>
-      <div>
-        <img src={image} alt={name} />
-        <p>{name}</p>
-        <p>R$ {price.replace(".", ",")}</p>
-        <p>{qty}</p>
-        <p>
-          SubTotal R$ {(qty * Number(price))
-          .toFixed(2).toString().replace(".", ",")}
-        </p>
-      </div>
-    </>
+    <S.Container>
+      <S.Image
+        src={image} 
+        alt={name} 
+      />
+      <S.Text>{name}</S.Text>
+      <S.Text>R$ {price.replace(".", ",")}</S.Text>
+      <S.Text>{qty}</S.Text>
+      <S.Text>
+        SubTotal R$ {(qty * Number(price))
+        .toFixed(2).toString().replace(".", ",")}
+      </S.Text>
+    </S.Container>
   )
 }
