@@ -12,4 +12,14 @@ export const Title = styled.h1`
   color: ${({theme}) => theme.colors.textLight};
   margin: 0 auto;
   margin-bottom: 4rem;
-`
+`;
+
+export const Total = styled.h3`
+  display: flex;
+  border-radius: 1rem;
+  justify-content: center;
+  background: ${({theme}) => theme.colors.terciary};
+  padding: 1rem;
+  width: 20%;
+  margin: 0 auto;
+`;

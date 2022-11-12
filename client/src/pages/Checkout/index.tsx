@@ -17,6 +17,7 @@ export function Checkout() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [address, setAddress] = useState<Address | null>(null);
 
+  const total = products.reduce((acc: number, item: any) => acc += Number(item.price) * item.qty, 0);
 
   useEffect(() => {
     const savedBought = JSON.parse(localStorage.getItem('@shopHistory') || '')!
@@ -41,6 +42,9 @@ export function Checkout() {
           />
         )))
       }
+      <div>
+        <S.Total>Total: R$ {total}</S.Total>
+      </div>
       {
         products && address && (
         <CheckoutAddress 
