@@ -1,3 +1,5 @@
+import * as S from './styled';
+
 interface Address {
   neighborhood: string,
   local: string,
@@ -8,12 +10,12 @@ interface Address {
 
 export function CheckoutAddress({neighborhood, local, street, uf, cep}: Address) {
   return (
-    <>
-      <p>{street}</p>
-      <p>{local}</p>
-      <p>{neighborhood}</p>
-      <p>{uf}</p>
-      <p>{cep}</p>
-    </>
+    <S.Container>
+      <S.Text>Rua: {street}</S.Text>
+      <S.Text>Cidade: {local}</S.Text>
+      <S.Text>Bairro: {neighborhood}</S.Text>
+      <S.Text>Estado: {uf}</S.Text>
+      <S.Text>CEP: {cep}</S.Text>
+    </S.Container>
   )
 }
