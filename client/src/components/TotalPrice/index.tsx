@@ -14,7 +14,7 @@ export function TotalPrice() {
       {
       productsList.length !== 0 && (
         <S.Container>
-          Total R$ {totalPrice.toString().replace(".", ",")}
+          Total R$ {totalPrice.toFixed(2).toString().replace(".", ",")}
         </S.Container>
       )
     }

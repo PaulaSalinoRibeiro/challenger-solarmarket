@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { IProduct } from '../../app/types';
 import { CheckoutAddress } from '../../components/CheckoutAddress';
 import { CheckoutCard } from '../../components/CheckoutCard';
+import { HomeNagivate } from '../../components/HomeNavigate';
 
 import * as S from './styled';
 
@@ -28,6 +29,7 @@ export function Checkout() {
 
   return (
     <S.Container>
+      <HomeNagivate />
       {
         products && address && <S.Title>Sua compra foi finalizada com sucesso!</S.Title>
       }
@@ -43,7 +45,10 @@ export function Checkout() {
         )))
       }
       <div>
-        <S.Total>Total: R$ {total}</S.Total>
+        <S.Total>
+          Total: R$ {total.toFixed(2)
+          .toString().replace(".",",")}
+        </S.Total>
       </div>
       {
         products && address && (
